@@ -160,6 +160,8 @@ def duration_minutes(duration):
     """
     if isinstance(duration, dt.timedelta):
         return duration.total_seconds() / 60
+    elif hasattr(duration, 'total_seconds'):
+        return duration.total_seconds() / 60
     elif isinstance(duration, (int, float)):
         return duration
     elif isinstance(duration, list):
